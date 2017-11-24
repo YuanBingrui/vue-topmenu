@@ -1,22 +1,9 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+  <div class="menuBox">
     <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
+      <li v-for="(menu, index) in menuArr"  @click="currentMenu(index)" ref="menuItem"><a href="#">{{menu.value}}</a></li>
     </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <span></span>
   </div>
 </template>
 
@@ -25,16 +12,24 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      menuArr: [{name: 'menu01', value: 'Core Docs'}, {name: 'menu02', value: 'Forum'}, {name: 'menu03', value: 'Community'},
+      {name: 'menu04', value: 'Twitter'}, {name: 'menu05', value: 'Vue Router'}, {name: 'menu06', value: 'Vuex'}]
+    }
+  },
+  methods: {
+    currentMenu: function (index) {
+      console.log(this.$refs.menuItem[index])
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+.menuBox {
+  width: 100%;
+  padding: 2px 0 10px 0;
+  border-bottom: 1px rgba(66,185,131,0.4) solid;
+  position: sticky;
 }
 ul {
   list-style-type: none;
@@ -43,8 +38,18 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
+  width: 120px;
+  text-align: center;
 }
 a {
+  text-decoration: none;
   color: #42b983;
+  padding: 20px 10px;
+}
+span {
+  border-bottom: 5px #42b983 solid;
+  width: 120px;
+  position: absolute;
+  left: 0;
 }
 </style>
