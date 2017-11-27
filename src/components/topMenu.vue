@@ -1,8 +1,11 @@
 <template>
   <div id="menuBox">
+    <div class="logoBox">
+      <img :src="menuData.logoImg">
+    </div>
     <div class="menuBody">
       <ul>
-        <li v-for="(menu, index) in menuData.menuArr" ref="menuItem" @click="currentMenu(index)" @mouseenter="hover(index)" @mouseleave="leave"><a href="#">{{menu.value}}</a></li>
+        <li v-for="(menu, index) in menuData.menuArr" ref="menuItem" @click="currentMenu(index)" @mouseenter="hover(index)" @mouseleave="leave"><a :href="menu.href">{{menu.name}}</a></li>
       </ul>
       <span ref="slideBox"></span>
     </div>
@@ -15,7 +18,6 @@ export default {
   props: ['menuData'],
   data () {
     return {
-      primaryColor: '',
       menuIndex: 0,
       leftValue: 0
     }
@@ -60,11 +62,20 @@ export default {
   --slide-speed: 1s;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px var(--primary-color) solid;
   position: sticky;
   padding: 2px 0 10px 0;
+}
+.logoBox {
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
+}
+.logoBox img {
+  width: 50px;
+  height: 50px;
 }
 .menuBody {
   position: relative;

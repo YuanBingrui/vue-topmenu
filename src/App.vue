@@ -16,7 +16,8 @@ export default {
       menuData: {
         primaryColor: '',
         slideSpeed: '',
-        menuArr: [{name: 'menu01', value: 'Core Docs'}, {name: 'menu02', value: 'Forum'}, {name: 'menu03', value: 'Community'}, {name: 'menu04', value: 'Twitter'}, {name: 'menu05', value: 'Vue Router'}, {name: 'menu06', value: 'Vuex'}, {name: 'menu06', value: 'Typescript'}]
+        logoImg: '../../static/logo.png',
+        menuArr: [{name: 'Core Docs', href: '#'}, {name: 'Forum', href: '#'}, {name: 'Community', href: '#'}, {name: 'Twitter', href: '#'}, {name: 'Vue Router', href: '#'}, {name: 'Vuex', href: '#'}, {name: 'Typescript', href: '#'}]
       }
     }
   }
