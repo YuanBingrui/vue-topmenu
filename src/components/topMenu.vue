@@ -1,7 +1,7 @@
 <template>
   <div id="menuBox">
     <div class="logoBox">
-      <img :src="menuData.logoImg">
+      <img v-if="menuData.logoImg" :src="menuData.logoImg">
     </div>
     <div class="menuBody">
       <ul>
