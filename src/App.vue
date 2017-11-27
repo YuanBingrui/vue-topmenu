@@ -15,6 +15,7 @@ export default {
     return {
       menuData: {
         primaryColor: '',
+        slideSpeed: '',
         menuArr: [{name: 'menu01', value: 'Core Docs'}, {name: 'menu02', value: 'Forum'}, {name: 'menu03', value: 'Community'}, {name: 'menu04', value: 'Twitter'}, {name: 'menu05', value: 'Vue Router'}, {name: 'menu06', value: 'Vuex'}, {name: 'menu06', value: 'Typescript'}]
       }
     }

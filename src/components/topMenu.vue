@@ -25,6 +25,9 @@ export default {
     if (this.menuData.primaryColor) {
       document.getElementById('menuBox').style.setProperty('--primary-color', this.menuData.primaryColor)
     }
+    if (this.menuData.slideSpeed) {
+      document.getElementById('menuBox').style.setProperty('--slide-speed', this.menuData.slideSpeed)
+    }
   },
   methods: {
     currentMenu: function (index) {
@@ -54,6 +57,7 @@ export default {
 <style scoped>
 #menuBox {
   --primary-color: #42b983;
+  --slide-speed: 1s;
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -88,9 +92,9 @@ span {
   background-color: var(--primary-color);
   border-radius: 2.5px;
   position: absolute;
-  transition:left 1s;
-  -moz-transition:left 1s; /* Firefox 4 */
-  -webkit-transition:left 1s; /* Safari and Chrome */
-  -o-transition:left 1s; /* Opera */
+  transition:left var(--slide-speed);
+  -moz-transition:left var(--slide-speed); /* Firefox 4 */
+  -webkit-transition:left var(--slide-speed); /* Safari and Chrome */
+  -o-transition:left var(--slide-speed); /* Opera */
 }
 </style>
