@@ -93,5 +93,4 @@ span {
   -webkit-transition:left 1s; /* Safari and Chrome */
   -o-transition:left 1s; /* Opera */
 }
-
 </style>
