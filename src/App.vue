@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <topMenu :menu-data="menuData"/>
+    <topMenu :menu-arr="menuData.menuArr" :logo-img="menuData.logoImg"/>
     <carousel :carousel-data="carouselData"/>
   </div>
 </template>

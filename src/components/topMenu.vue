@@ -1,11 +1,11 @@
 <template>
   <div id="menuBox">
     <div class="logoBox">
-      <img v-if="menuData.logoImg" :src="menuData.logoImg">
+      <img v-if="logoImg" :src="logoImg">
     </div>
     <div class="menuBody">
       <ul>
-        <li v-for="(menu, index) in menuData.menuArr" ref="menuItem" @click="currentMenu(index)" @mouseenter="hover(index)" @mouseleave="leave"><a :href="menu.href">{{menu.name}}</a></li>
+        <li v-for="(menu, index) in menuArr" ref="menuItem" @click="currentMenu(index)" @mouseenter="hover(index)" @mouseleave="leave"><a :href="menu.href">{{menu.name}}</a></li>
       </ul>
       <span ref="slideBox"></span>
     </div>
@@ -15,7 +15,22 @@
 <script>
 export default {
   name: 'topMenu',
-  props: ['menuData'],
+  props: {
+    primaryColor: {
+      type: String,
+      default: '#42b983'
+    },
+    slideSpeed: {
+      type: String,
+      default: '0.7s'
+    },
+    logoImg: {
+      type: String
+    },
+    menuArr: {
+      validator: (val) => val instanceof Array
+    }
+  },
   data () {
     return {
       menuIndex: 0,
@@ -23,12 +38,13 @@ export default {
     }
   },
   mounted: function () {
+    console.log(this.slideSpeed)
     this.currentMenu(this.menuIndex)
-    if (this.menuData.primaryColor) {
-      document.getElementById('menuBox').style.setProperty('--primary-color', this.menuData.primaryColor)
+    if (this.primaryColor) {
+      document.getElementById('menuBox').style.setProperty('--primary-color', this.primaryColor)
     }
-    if (this.menuData.slideSpeed) {
-      document.getElementById('menuBox').style.setProperty('--slide-speed', this.menuData.slideSpeed)
+    if (this.slideSpeed) {
+      document.getElementById('menuBox').style.setProperty('--slide-speed', this.slideSpeed)
     }
   },
   methods: {
@@ -58,8 +74,8 @@ export default {
 
 <style scoped>
 #menuBox {
-  --primary-color: #42b983;
-  --slide-speed: 1s;
+  --primary-color: '';
+  --slide-speed: '';
   width: 100%;
   display: flex;
   justify-content: space-between;
