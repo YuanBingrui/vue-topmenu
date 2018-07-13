@@ -1,18 +1,16 @@
 <template>
   <div id="app">
-    <topMenu :menu-arr="menuData.menuArr" :logo-img="menuData.logoImg"/>
-    <carousel :carousel-data="carouselData"/>
+    <top-menu :menu-arr="menuData.menuArr" :logo-img="menuData.logoImg"/>
   </div>
 </template>
 
 <script>
-import topMenu from './components/topMenu'
-import carousel from './components/carousel'
+import TopMenu from './components/TopMenu/TopMenu'
+
 export default {
   name: 'app',
   components: {
-    topMenu,
-    carousel
+    TopMenu
   },
   data () {
     return {
@@ -20,18 +18,26 @@ export default {
         primaryColor: '',
         slideSpeed: '',
         logoImg: '../../static/logo.png',
-        menuArr: [{name: 'Core Docs', href: '#'}, {name: 'Forum', href: '#'}, {name: 'Community', href: '#'}, {name: 'Twitter', href: '#'}, {name: 'Vue Router', href: '#'}, {name: 'Vuex', href: '#'}, {name: 'Typescript', href: '#'}]
-      },
-      carouselData: {}
+        menuArr: [
+          { name: 'Core Docs', href: '#' },
+          { name: 'Forum', href: '#' },
+          { name: 'Community', href: '#' },
+          { name: 'Twitter', href: '#' }
+        ]
+      }
     }
-  }
+  },
+  created () {},
+  methods: {}
 }
 </script>
 
 <style>
+body {
+  margin: 0 !important;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  height: 1000px;
+  border: 1px #fff solid;
 }
 </style>
