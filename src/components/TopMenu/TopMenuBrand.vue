@@ -1,9 +1,9 @@
 <template>
-  <div class="top-menu-brand">
+  <figure class="top-menu-brand">
     <a :href="href">
-      <slot>Brand</slot>
+      <slot></slot>
     </a>
-  </div>
+  </figure>
 </template>
 
 <script>
@@ -20,19 +20,21 @@ export default {
 
 <style scoped>
 .top-menu-brand {
-  margin-left: 3rem;
-  margin-right: 1.5rem;
+  width: 15%;
+  margin: 1em 0;
+  box-sizing: border-box;
 }
 .top-menu-brand img {
   width: 4rem;
   height: 4rem;
   margin-right: 1rem;
 }
-.top-menu-brand a {
+.top-menu-brand > a {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
+  color: #6b6b6b;
 }
 </style>

@@ -1,57 +1,52 @@
 <template>
-  <div class="menu-container">
-    <ul class="menu-container-body">
+  <header class="menu-container">
+    <div class="menu-container-body">
       <top-menu-brand href="/">
         <img v-if="logoImg" :src="logoImg">
           brand
       </top-menu-brand>
-      <top-menu-item href="/">
-        <template slot="title">MENU ONE</template>
-      </top-menu-item>
-      <top-menu-item href="/">
-        <template slot="title">MENU TWO</template>
-      </top-menu-item>
-      <top-menu-item href="/">
-        <template slot="title">MENU TWO</template>
-      </top-menu-item>
-      <top-menu-item href="/">
-        <template slot="title">MENU TWO</template>
-      </top-menu-item>
-      <top-sub-menu>
-        <template slot="title">SUBMENU ONE</template>
-        <top-menu-item
-          v-for="(menu, index) in menuArr"
-          :key="index+ 'top-menu-item'"
-          :href="menu.href">
-          <template slot="title">{{ menu.name }}</template>
-        </top-menu-item>
-      </top-sub-menu>
-    <!-- <top-sub-menu class="top-right">
-      <top-menu-item href="/">
-        <template slot="title">sign in</template>
-      </top-menu-item>
-      <top-menu-item href="/">
-        <template slot="title">sign up</template>
-      </top-menu-item>
-      <top-menu-item href="/">
-        <template slot="title">help</template>
-      </top-menu-item>
-    </top-sub-menu> -->
-  </ul>
-  </div>
+      <top-menu-nav>
+        <top-menu-item href="/">MENU ONE</top-menu-item>
+        <top-menu-item href="/">MENU TWO</top-menu-item>
+        <top-menu-item href="/">MENU TWO</top-menu-item>
+        <top-sub-menu>
+          <template slot="title">SUBMENU ONE</template>
+          <top-menu-item
+            v-for="(menu, index) in menuArr"
+            :key="index+ 'top-menu-item'"
+            :href="menu.href">
+            {{ menu.name }}
+          </top-menu-item>
+        </top-sub-menu>
+      </top-menu-nav>
+      <top-menu-aside>
+        <top-menu-item href="/">SIGN IN</top-menu-item>
+        <top-menu-item href="/">SIGN UP</top-menu-item>
+        <top-sub-menu>
+          <template slot="title">HELP</template>
+          <top-menu-item>HELP ONE</top-menu-item>
+          <top-menu-item>HELP TWO</top-menu-item>
+        </top-sub-menu>
+      </top-menu-aside>
+    </div>
+  </header>
 </template>
 
 <script>
 import TopMenuBrand from './TopMenuBrand'
-import TopMenuItem from './TopMenuItem'
+import TopMenuNav from './TopMenuNav'
+import TopMenuAside from './TopMenuAside'
 import TopSubMenu from './TopSubMenu'
+import TopMenuItem from './TopMenuItem'
 
 export default {
   name: 'TopMenu',
   components: {
     TopMenuBrand,
     TopMenuItem,
-    TopSubMenu
+    TopSubMenu,
+    TopMenuNav,
+    TopMenuAside
   },
   props: {
     primaryColor: {
@@ -94,11 +89,17 @@ export default {
   width: 100%;
   background: #f7f9fa;
   position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  height: 105px;
+  border-bottom: 1px solid #d4d6d6;
 }
 .menu-container-body {
   display: flex;
-  /*justify-content: space-between;*/
-  align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0 40px;
+  /*box-sizing: border-box;*/
+  color: #6b6b6b;
+  height: 100%;
 }
 </style>
