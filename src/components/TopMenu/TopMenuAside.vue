@@ -21,6 +21,7 @@ export default {
 .top-menu-aside {
   width: 25%;
   box-sizing: border-box;
+  font-size: 13px;
 }
 .top-menu-aside-body {
   display: flex;

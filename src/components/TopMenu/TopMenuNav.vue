@@ -30,4 +30,7 @@ export default {
   padding: 0 1rem;
   margin: 0;
 }
+.top-menu-nav-body > li:last-child {
+  padding-right: 0;
+}
 </style>

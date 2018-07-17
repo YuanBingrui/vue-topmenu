@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <top-menu :menu-arr="menuData.menuArr" :logo-img="menuData.logoImg"/>
+    <top-menu
+      :menu-list="menuData.menuList"
+      :logo-img="menuData.logoImg"/>
     <div class="content-container">sddsfsd</div>
   </div>
 </template>
@@ -17,9 +19,8 @@ export default {
     return {
       menuData: {
         primaryColor: '',
-        slideSpeed: '',
         logoImg: '../../static/logo.png',
-        menuArr: [
+        menuList: [
           { name: 'Core Docs', href: '#' },
           { name: 'Forum', href: '#' },
           { name: 'Community', href: '#' },

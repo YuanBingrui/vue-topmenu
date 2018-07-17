@@ -27,8 +27,7 @@ export default {
 <style scoped>
 .top-sub-menu-container {
   list-style: none;
-  padding: 0 0.7rem 0.1rem 0.7rem;
-  margin: 0 0.7rem;
+  padding-right: 2rem;
   cursor: pointer;
   color: #6b6b6b;
   height: 100%;

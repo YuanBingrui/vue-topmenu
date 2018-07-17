@@ -1,6 +1,9 @@
 <template>
   <li class="top-menu-item">
-    <a :href="href">
+    <a
+      :href="href"
+      :class="{ itemActive: this.rootMenu.activeIndex === this.index }"
+      @click="addActiveClass()">
       <slot></slot>
     </a>
   </li>
@@ -9,18 +12,22 @@
 <script>
 export default {
   name: 'TopMenuItem',
+  inject: ['rootMenu'],
   props: {
     href: {
       type: String,
       default: ''
+    },
+    index: {
+      type: String,
+      default: ''
     }
   },
-  data () {
-    return {}
-  },
-  created () {},
-  mounted () {},
-  methods: {}
+  methods: {
+    addActiveClass () {
+      this.rootMenu.activeIndex = this.index
+    }
+  }
 }
 </script>
 
@@ -35,9 +42,14 @@ export default {
 }
 .top-menu-item > a {
   text-decoration: none;
-  padding: 1.1rem 0.7rem;
+  padding-right: 2rem;
   text-align: center;
-  margin: 0 0.7rem;
   color: #6b6b6b;
+}
+.top-menu-item > a:hover {
+  color: #0d0e0e;
+}
+.itemActive {
+  color: #0d0e0e !important;
 }
 </style>

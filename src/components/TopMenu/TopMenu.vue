@@ -3,29 +3,30 @@
     <div class="menu-container-body">
       <top-menu-brand href="/">
         <img v-if="logoImg" :src="logoImg">
-          brand
+        brand
       </top-menu-brand>
       <top-menu-nav>
-        <top-menu-item href="/">MENU ONE</top-menu-item>
-        <top-menu-item href="/">MENU TWO</top-menu-item>
-        <top-menu-item href="/">MENU TWO</top-menu-item>
+        <top-menu-item index="1" href="#">MENU ONE</top-menu-item>
+        <top-menu-item index="2" href="#">MENU TWO</top-menu-item>
+        <top-menu-item index="3" href="#">MENU TWO TWO</top-menu-item>
         <top-sub-menu>
           <template slot="title">SUBMENU ONE</template>
           <top-menu-item
-            v-for="(menu, index) in menuArr"
+            v-for="(menu, index) in menuList"
             :key="index+ 'top-menu-item'"
-            :href="menu.href">
+            :href="menu.href"
+            :index="'4-' + index">
             {{ menu.name }}
           </top-menu-item>
         </top-sub-menu>
       </top-menu-nav>
       <top-menu-aside>
-        <top-menu-item href="/">SIGN IN</top-menu-item>
-        <top-menu-item href="/">SIGN UP</top-menu-item>
+        <top-menu-item index="5" href="#"><span class="menu-btn">SIGN IN</span></top-menu-item>
+        <top-menu-item index="6" href="#"><span class="menu-btn">SIGN UP UP</span></top-menu-item>
         <top-sub-menu>
           <template slot="title">HELP</template>
-          <top-menu-item>HELP ONE</top-menu-item>
-          <top-menu-item>HELP TWO</top-menu-item>
+          <top-menu-item index="7-1">HELP ONE</top-menu-item>
+          <top-menu-item index="7-2">HELP TWO</top-menu-item>
         </top-sub-menu>
       </top-menu-aside>
     </div>
@@ -53,29 +54,26 @@ export default {
       type: String,
       default: '#42b983'
     },
-    slideSpeed: {
-      type: String,
-      default: '0.7s'
-    },
     logoImg: {
       type: String
     },
-    menuArr: {
+    menuList: {
       validator: (val) => val instanceof Array
     }
   },
   data () {
     return {
-      menuIndex: 0,
-      leftValue: 0
+      activeIndex: '1'
+    }
+  },
+  provide () {
+    return {
+      rootMenu: this
     }
   },
   mounted: function () {
     if (this.primaryColor) {
       document.querySelector('.menu-container').style.setProperty('--primary-color', this.primaryColor)
-    }
-    if (this.slideSpeed) {
-      document.querySelector('.menu-container').style.setProperty('--slide-speed', this.slideSpeed)
     }
   },
   methods: {}
@@ -85,7 +83,6 @@ export default {
 <style scoped>
 .menu-container {
   --primary-color: '';
-  --slide-speed: '';
   width: 100%;
   background: #f7f9fa;
   position: fixed;
@@ -98,8 +95,12 @@ export default {
 .menu-container-body {
   display: flex;
   padding: 0 40px;
-  /*box-sizing: border-box;*/
   color: #6b6b6b;
   height: 100%;
+}
+.menu-btn {
+  padding: 7px 14px;
+  background-color: #edeff0;
+  border-radius: 14px;
 }
 </style>
