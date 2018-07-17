@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import TopMenu from './components/TopMenu/TopMenu'
+import TopMenu from './components/TopMenu'
 
 export default {
   name: 'app',

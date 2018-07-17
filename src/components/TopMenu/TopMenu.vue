@@ -92,15 +92,4 @@ export default {
   height: 105px;
   border-bottom: 1px solid #d4d6d6;
 }
-.menu-container-body {
-  display: flex;
-  padding: 0 40px;
-  color: #6b6b6b;
-  height: 100%;
-}
-.menu-btn {
-  padding: 7px 14px;
-  background-color: #edeff0;
-  border-radius: 14px;
-}
 </style>
