@@ -1,5 +1,5 @@
 <template>
-  <li class="top-menu-item">
+  <li class="desk-top-menu-item">
     <a
       :href="href"
       :class="{ itemActive: this.rootMenu.activeIndex === this.index }"
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'TopMenuItem',
+  name: 'DeskTopMenuItem',
   inject: ['rootMenu'],
   props: {
     href: {
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped>
-.top-menu-item {
+.desk-top-menu-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,13 +40,13 @@ export default {
   margin: 0;
   list-style: none;
 }
-.top-menu-item > a {
+.desk-top-menu-item > a {
   text-decoration: none;
   padding-right: 2rem;
   text-align: center;
   color: #6b6b6b;
 }
-.top-menu-item > a:hover {
+.desk-top-menu-item > a:hover {
   color: #0d0e0e;
 }
 .itemActive {

@@ -1,58 +1,63 @@
 <template>
   <div class="desk-menu-container-body">
-    <top-menu-brand href="/">
-      <img v-if="logoImg" :src="logoImg">
+    <desk-top-menu-brand href="/">
+      <img v-if="$attrs.logoImg" :src="$attrs.logoImg">
       brand
-    </top-menu-brand>
-    <top-menu-nav>
-    <top-menu-item index="1" href="#">MENU ONE</top-menu-item>
-    <top-menu-item index="2" href="#">MENU TWO</top-menu-item>
-    <top-menu-item index="3" href="#">MENU TWO TWO</top-menu-item>
-    <top-sub-menu>
-      <template slot="title">SUBMENU ONE</template>
-      <top-menu-item
-        v-for="(menu, index) in menuList"
-        :key="index+ 'top-menu-item'"
-        :href="menu.href"
-        :index="'4-' + index">
-        {{ menu.name }}
-      </top-menu-item>
-    </top-sub-menu>
-    </top-menu-nav>
-    <top-menu-aside>
-      <top-menu-item index="5" href="#"><span class="desk-menu-btn">SIGN IN</span></top-menu-item>
-      <top-menu-item index="6" href="#"><span class="desk-menu-btn">SIGN UP UP</span></top-menu-item>
-      <top-sub-menu>
+    </desk-top-menu-brand>
+    <desk-top-menu-nav>
+      <desk-top-menu-item index="1" href="#">MENU ONE</desk-top-menu-item>
+      <desk-top-menu-item index="2" href="#">MENU TWO</desk-top-menu-item>
+      <desk-top-menu-item index="3" href="#">MENU TWO TWO</desk-top-menu-item>
+      <desk-top-sub-menu>
+        <template slot="title">SUBMENU ONE</template>
+        <desk-top-menu-item
+          v-for="(menu, index) in $attrs.menuList"
+          :key="index+ 'desk-top-menu-item'"
+          :href="menu.href"
+          :index="'4-' + index">
+          {{ menu.name }}
+        </desk-top-menu-item>
+      </desk-top-sub-menu>
+    </desk-top-menu-nav>
+    <desk-top-menu-aside>
+      <desk-top-menu-item index="5" href="#">
+        <span class="desk-menu-btn">SIGN IN</span>
+      </desk-top-menu-item>
+      <desk-top-menu-item index="6" href="#">
+        <span class="desk-menu-btn">SIGN UP UP</span>
+      </desk-top-menu-item>
+      <desk-top-sub-menu>
         <template slot="title">HELP</template>
-        <top-menu-item index="7-1">HELP ONE</top-menu-item>
-        <top-menu-item index="7-2">HELP TWO</top-menu-item>
-      </top-sub-menu>
-    </top-menu-aside>
+        <desk-top-menu-item index="7-1">HELP ONE</desk-top-menu-item>
+        <desk-top-menu-item index="7-2">HELP TWO</desk-top-menu-item>
+      </desk-top-sub-menu>
+    </desk-top-menu-aside>
   </div>
 </template>
 
 <script>
-import DeskTopMenuBrand from './TopMenuBrand'
-import DeskTopMenuNav from './TopMenuNav'
-import DeskTopMenuAside from './TopMenuAside'
-import DeskTopSubMenu from './TopSubMenu'
-import DeskTopMenuItem from './TopMenuItem'
+import DeskTopMenuBrand from './DeskTopMenuBrand'
+import DeskTopMenuNav from './DeskTopMenuNav'
+import DeskTopMenuAside from './DeskTopMenuAside'
+import DeskTopSubMenu from './DeskTopSubMenu'
+import DeskTopMenuItem from './DeskTopMenuItem'
 
 export default {
   name: 'DeskTopMenu',
   components: {
-    TopMenuBrand,
-    TopMenuItem,
-    TopSubMenu,
-    TopMenuNav,
-    TopMenuAside
+    DeskTopMenuBrand,
+    DeskTopMenuItem,
+    DeskTopSubMenu,
+    DeskTopMenuNav,
+    DeskTopMenuAside
   },
+  inheritAttrs: false,
   data () {
-    return {
-
-    }
+    return {}
   },
-  created () {},
+  created () {
+    console.log(this.$attrs)
+  },
   mounted () {},
   methods: {}
 }
@@ -69,5 +74,10 @@ export default {
   padding: 7px 14px;
   background-color: #edeff0;
   border-radius: 14px;
+}
+@media (max-width: 576px) {
+  .desk-menu-container-body {
+    display: none;
+  }
 }
 </style>

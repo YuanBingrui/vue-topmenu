@@ -1,6 +1,6 @@
 <template>
-  <aside class="top-menu-aside">
-    <ul class="top-menu-aside-body">
+  <aside class="desk-top-menu-aside">
+    <ul class="desk-top-menu-aside-body">
       <slot></slot>
     </ul>
   </aside>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'TopMenuAside',
+  name: 'DeskTopMenuAside',
   data () {
     return {}
   },
@@ -18,12 +18,12 @@ export default {
 </script>
 
 <style scoped>
-.top-menu-aside {
+.desk-top-menu-aside {
   width: 25%;
   box-sizing: border-box;
   font-size: 13px;
 }
-.top-menu-aside-body {
+.desk-top-menu-aside-body {
   display: flex;
   align-items: center;
   padding: 0 1rem;

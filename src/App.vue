@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <top-menu
-      :menu-list="menuData.menuList"
-      :logo-img="menuData.logoImg"/>
+      :menuList="menuData.menuList"
+      :logoImg="menuData.logoImg"/>
     <div class="content-container">sddsfsd</div>
   </div>
 </template>

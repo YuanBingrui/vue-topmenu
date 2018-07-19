@@ -1,13 +1,9 @@
 <template>
   <header class="menu-container">
     <div class="mobile-banner">
-      
+      mobile
     </div>
-    <div class="desktop-banner">
-      <desk-top-menu
-        :menu-list="menuList"
-        :logo-img="logoImg"/>
-    </div>
+    <desk-top-menu v-bind="$attrs"/>
   </header>
 </template>
 
@@ -17,18 +13,6 @@ export default {
   name: 'TopMenu',
   components: {
     DeskTopMenu
-  },
-  props: {
-    primaryColor: {
-      type: String,
-      default: '#42b983'
-    },
-    logoImg: {
-      type: String
-    },
-    menuList: {
-      validator: (val) => val instanceof Array
-    }
   },
   data () {
     return {
@@ -41,9 +25,9 @@ export default {
     }
   },
   mounted () {
-    if (this.primaryColor) {
-      document.querySelector('.menu-container').style.setProperty('--primary-color', this.primaryColor)
-    }
+    // if (this.primaryColor) {
+    //   document.querySelector('.menu-container').style.setProperty('--primary-color', this.primaryColor)
+    // }
   },
   methods: {}
 }
@@ -60,5 +44,13 @@ export default {
   left: 0;
   height: 105px;
   border-bottom: 1px solid #d4d6d6;
+}
+.mobile-banner {
+  display: none;
+}
+@media (max-width: 576px) {
+  .mobile-banner {
+    display: block;
+  }
 }
 </style>

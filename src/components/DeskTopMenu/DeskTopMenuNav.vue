@@ -1,6 +1,6 @@
 <template>
-  <nav class="top-menu-nav">
-    <ul class="top-menu-nav-body">
+  <nav class="desk-top-menu-nav">
+    <ul class="desk-top-menu-nav-body">
       <slot></slot>
     </ul>
   </nav>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'TopMenuNav',
+  name: 'DeskTopMenuNav',
   data () {
     return {}
   },
@@ -18,19 +18,19 @@ export default {
 </script>
 
 <style scoped>
-.top-menu-nav {
+.desk-top-menu-nav {
   width: 60%;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
 }
-.top-menu-nav-body {
+.desk-top-menu-nav-body {
   display: flex;
   align-items: center;
   padding: 0 1rem;
   margin: 0;
 }
-.top-menu-nav-body > li:last-child {
+.desk-top-menu-nav-body > li:last-child {
   padding-right: 0;
 }
 </style>

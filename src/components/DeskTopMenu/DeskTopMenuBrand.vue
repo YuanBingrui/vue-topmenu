@@ -1,5 +1,5 @@
 <template>
-  <figure class="top-menu-brand">
+  <figure class="desk-top-menu-brand">
     <a :href="href">
       <slot></slot>
     </a>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'TopMenuBrand',
+  name: 'DeskTopMenuBrand',
   props: {
     href: {
       type: String,
@@ -19,17 +19,17 @@ export default {
 </script>
 
 <style scoped>
-.top-menu-brand {
+.desk-top-menu-brand {
   width: 15%;
   margin: 1em 0;
   box-sizing: border-box;
 }
-.top-menu-brand img {
+.desk-top-menu-brand img {
   width: 4rem;
   height: 4rem;
   margin-right: 1rem;
 }
-.top-menu-brand > a {
+.desk-top-menu-brand > a {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.2rem;
