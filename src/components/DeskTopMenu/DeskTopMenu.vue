@@ -4,7 +4,8 @@
       <img v-if="$attrs.logoImg" :src="$attrs.logoImg">
       brand
     </desk-top-menu-brand>
-    <desk-top-menu-nav>
+    <div class="desk-menu-nav-list">
+      <desk-top-menu-nav>
       <desk-top-menu-item index="1" href="#">MENU ONE</desk-top-menu-item>
       <desk-top-menu-item index="2" href="#">MENU TWO</desk-top-menu-item>
       <desk-top-menu-item index="3" href="#">MENU TWO TWO</desk-top-menu-item>
@@ -33,6 +34,7 @@
       </desk-top-sub-menu>
     </desk-top-menu-aside>
   </div>
+    </div>
 </template>
 
 <script>
@@ -75,7 +77,20 @@ export default {
   background-color: #edeff0;
   border-radius: 14px;
 }
-@media (max-width: 576px) {
+@media (min-width: 1200px) {
+  .desk-menu-nav-list {
+    display: flex;
+    width: 100%;
+  }
+}
+@media (min-width: 768.01px) and (max-width: 1199.98px) {
+  .desk-menu-nav-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+@media (max-width: 768px) {
   .desk-menu-container-body {
     display: none;
   }

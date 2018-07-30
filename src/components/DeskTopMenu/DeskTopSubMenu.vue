@@ -51,7 +51,7 @@ export default {
   color: #6b6b6b;
   background: #fbfcfd;
   position: absolute;
-  top: 101%;
+  top: 100%;
   left: 0;
   width: 100%;
   height: 0;
@@ -59,6 +59,7 @@ export default {
   overflow: hidden;
   transition: height .4s;
   text-align: center;
+  border-top: 1px solid #d4d6d6;
 }
 .desk-top-sub-menu-body {
   list-style-type: none;

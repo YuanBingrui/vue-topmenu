@@ -1,18 +1,18 @@
 <template>
-  <header class="menu-container">
-    <div class="mobile-banner">
-      mobile
-    </div>
+  <header class="menu-container menu-container-sm menu-container-md menu-container-lg">
     <desk-top-menu v-bind="$attrs"/>
+    <mobile-top-menu v-bind="$attrs"/>
   </header>
 </template>
 
 <script>
 import DeskTopMenu from './DeskTopMenu/DeskTopMenu'
+import MobileTopMenu from './MobileTopMenu/MobileTopMenu'
 export default {
   name: 'TopMenu',
   components: {
-    DeskTopMenu
+    DeskTopMenu,
+    MobileTopMenu
   },
   data () {
     return {
@@ -25,11 +25,18 @@ export default {
     }
   },
   mounted () {
-    // if (this.primaryColor) {
-    //   document.querySelector('.menu-container').style.setProperty('--primary-color', this.primaryColor)
-    // }
+    this.bindScollEvent()
   },
-  methods: {}
+  methods: {
+    bindScollEvent () {
+      let self = this
+      // window.addEventListener('scroll', function (event) {
+      //   self.$el.style.height = '69px'
+      //   console.dir(self.$el)
+      //   console.log(event)
+      // }, false)
+    }
+  }
 }
 </script>
 
@@ -42,15 +49,20 @@ export default {
   z-index: 3;
   top: 0;
   left: 0;
-  height: 105px;
-  border-bottom: 1px solid #d4d6d6;
 }
-.mobile-banner {
-  display: none;
+@media (min-width: 1200px) {
+  .menu-container-lg {
+    height: 100px;
+  }
 }
-@media (max-width: 576px) {
-  .mobile-banner {
-    display: block;
+@media (min-width: 768.01px) and (max-width: 1199.98px) {
+  .menu-container-md {
+    height: 100px;
+  }
+}
+@media (max-width: 768px) {
+  .menu-container-sm {
+    height: 70px;
   }
 }
 </style>
