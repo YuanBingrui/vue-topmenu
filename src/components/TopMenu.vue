@@ -28,14 +28,7 @@ export default {
     this.bindScollEvent()
   },
   methods: {
-    bindScollEvent () {
-      let self = this
-      // window.addEventListener('scroll', function (event) {
-      //   self.$el.style.height = '69px'
-      //   console.dir(self.$el)
-      //   console.log(event)
-      // }, false)
-    }
+    bindScollEvent () {}
   }
 }
 </script>
@@ -44,7 +37,7 @@ export default {
 .menu-container {
   --primary-color: '';
   width: 100%;
-  background: #f7f9fa;
+  background: #f8f4e6;
   position: fixed;
   z-index: 3;
   top: 0;

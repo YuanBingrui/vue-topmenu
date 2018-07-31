@@ -1,40 +1,40 @@
 <template>
-  <div class="desk-menu-container-body">
+  <div class="desk-menu-container">
     <desk-top-menu-brand href="/">
       <img v-if="$attrs.logoImg" :src="$attrs.logoImg">
       brand
     </desk-top-menu-brand>
     <div class="desk-menu-nav-list">
       <desk-top-menu-nav>
-      <desk-top-menu-item index="1" href="#">MENU ONE</desk-top-menu-item>
-      <desk-top-menu-item index="2" href="#">MENU TWO</desk-top-menu-item>
-      <desk-top-menu-item index="3" href="#">MENU TWO TWO</desk-top-menu-item>
-      <desk-top-sub-menu>
-        <template slot="title">SUBMENU ONE</template>
-        <desk-top-menu-item
-          v-for="(menu, index) in $attrs.menuList"
-          :key="index+ 'desk-top-menu-item'"
-          :href="menu.href"
-          :index="'4-' + index">
-          {{ menu.name }}
+        <desk-top-menu-item index="1" href="#">MENU ONE</desk-top-menu-item>
+        <desk-top-menu-item index="2" href="#">MENU TWO</desk-top-menu-item>
+        <desk-top-menu-item index="3" href="#">MENU TWO TWO</desk-top-menu-item>
+        <desk-top-sub-menu>
+          <template slot="title">SUBMENU ONE</template>
+          <desk-top-menu-item
+            v-for="(menu, index) in $attrs.menuList"
+            :key="index+ 'desk-top-menu-item'"
+            :href="menu.href"
+            :index="'4-' + index">
+            {{ menu.name }}
+          </desk-top-menu-item>
+        </desk-top-sub-menu>
+      </desk-top-menu-nav>
+      <desk-top-menu-aside>
+        <desk-top-menu-item index="5" href="#">
+          <span class="desk-menu-btn">SIGN IN</span>
         </desk-top-menu-item>
-      </desk-top-sub-menu>
-    </desk-top-menu-nav>
-    <desk-top-menu-aside>
-      <desk-top-menu-item index="5" href="#">
-        <span class="desk-menu-btn">SIGN IN</span>
-      </desk-top-menu-item>
-      <desk-top-menu-item index="6" href="#">
-        <span class="desk-menu-btn">SIGN UP UP</span>
-      </desk-top-menu-item>
-      <desk-top-sub-menu>
-        <template slot="title">HELP</template>
-        <desk-top-menu-item index="7-1">HELP ONE</desk-top-menu-item>
-        <desk-top-menu-item index="7-2">HELP TWO</desk-top-menu-item>
-      </desk-top-sub-menu>
-    </desk-top-menu-aside>
-  </div>
+        <desk-top-menu-item index="6" href="#">
+          <span class="desk-menu-btn">SIGN UP UP</span>
+        </desk-top-menu-item>
+        <desk-top-sub-menu>
+          <template slot="title">HELP</template>
+          <desk-top-menu-item index="7-1">HELP ONE</desk-top-menu-item>
+          <desk-top-menu-item index="7-2">HELP TWO</desk-top-menu-item>
+        </desk-top-sub-menu>
+      </desk-top-menu-aside>
     </div>
+  </div>
 </template>
 
 <script>
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style scoped>
-.desk-menu-container-body {
+.desk-menu-container {
   display: flex;
   padding: 0 40px;
   color: #6b6b6b;
@@ -91,7 +91,7 @@ export default {
   }
 }
 @media (max-width: 768px) {
-  .desk-menu-container-body {
+  .desk-menu-container {
     display: none;
   }
 }

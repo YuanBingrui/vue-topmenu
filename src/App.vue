@@ -24,6 +24,10 @@ export default {
           { name: 'Core Docs', href: '#' },
           { name: 'Forum', href: '#' },
           { name: 'Community', href: '#' },
+          { name: 'Twitter', href: '#' },
+          { name: 'Community', href: '#' },
+          { name: 'Twitter', href: '#' },
+          { name: 'Twitter', href: '#' },
           { name: 'Twitter', href: '#' }
         ]
       }

@@ -62,7 +62,6 @@ export default {
   border-top: 1px solid #d4d6d6;
 }
 .desk-top-sub-menu-body {
-  list-style-type: none;
   display: flex;
   justify-content: center;
   align-items: center;
