@@ -29,7 +29,7 @@ export default {
   list-style: none;
   padding-right: 2rem;
   cursor: pointer;
-  color: #6b6b6b;
+  color: #fff;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -38,17 +38,21 @@ export default {
 .desk-top-sub-menu-title .icon-arrow-down {
   width: 16px;
   height: 12px;
-  fill: #6b6b6b;
+  fill: #fff;
   transition: .3s;
+}
+.desk-top-sub-menu-container:hover .desk-top-sub-menu-title {
+  color: #000;
 }
 .desk-top-sub-menu-container .icon-arrow-down {
   transform: rotateZ(180deg)
 }
 .desk-top-sub-menu-container:hover .icon-arrow-down {
-  transform: rotateZ(360deg)
+  transform: rotateZ(360deg);
+  fill: #000;
 }
 .desk-top-sub-menu-content {
-  color: #6b6b6b;
+  color: #000;
   background: #fbfcfd;
   position: absolute;
   top: 100%;

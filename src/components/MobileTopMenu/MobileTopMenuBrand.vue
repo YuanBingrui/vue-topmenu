@@ -1,17 +1,19 @@
 <template>
   <figure class="mobile-top-menu-brand">
-    <a :href="href">
+    <div
+      class="link-div"
+      @click="rootMenu.handleItemClick(to)">
       <slot></slot>
-    </a>
+    </div>
   </figure>
 </template>
 
 <script>
 export default {
   name: 'MobileTopMenuBrand',
+  inject: ['rootMenu'],
   props: {
-    href: {
-      type: String,
+    to: {
       default: ''
     }
   }
@@ -28,13 +30,12 @@ export default {
   box-sizing: border-box;
   height: 100%;
 }
-.mobile-top-menu-brand img {
+.mobile-top-menu-brand > .link-div > img {
   width: 2rem;
   height: 2rem;
   margin-right: 0.7rem;
 }
-.mobile-top-menu-brand > a {
-  text-decoration: none;
+.mobile-top-menu-brand > .link-div {
   font-weight: bold;
   font-size: 1.2rem;
   display: flex;

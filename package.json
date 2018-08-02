@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "headroom.js": "^0.9.4",
     "postcss-url": "^7.3.1",
     "vue": "^2.5.2"
   },

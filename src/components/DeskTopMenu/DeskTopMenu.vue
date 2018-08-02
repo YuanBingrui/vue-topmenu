@@ -1,37 +1,58 @@
 <template>
   <div class="desk-menu-container">
-    <desk-top-menu-brand href="/">
-      <img v-if="$attrs.logoImg" :src="$attrs.logoImg">
-      brand
+    <desk-top-menu-brand :to="$attrs.logoImg.to">
+      <img
+        v-if="$attrs.logoImg"
+        :src="$attrs.logoImg.src"
+        :alt="$attrs.logoImg.name">
+      {{ $attrs.logoImg.wordDes }}
     </desk-top-menu-brand>
     <div class="desk-menu-nav-list">
       <desk-top-menu-nav>
-        <desk-top-menu-item index="1" href="#">MENU ONE</desk-top-menu-item>
-        <desk-top-menu-item index="2" href="#">MENU TWO</desk-top-menu-item>
-        <desk-top-menu-item index="3" href="#">MENU TWO TWO</desk-top-menu-item>
-        <desk-top-sub-menu>
-          <template slot="title">SUBMENU ONE</template>
+        <template v-for="(menuItem, index) in $attrs.menuList">
           <desk-top-menu-item
-            v-for="(menu, index) in $attrs.menuList"
-            :key="index+ 'desk-top-menu-item'"
-            :href="menu.href"
-            :index="'4-' + index">
-            {{ menu.name }}
+            v-if="!menuItem.subMenuList"
+            :key="index+ 'desk-menu-item'"
+            :index="index + '_nav'"
+            :to="menuItem.to">
+            {{ menuItem.name }}
           </desk-top-menu-item>
-        </desk-top-sub-menu>
+          <desk-top-sub-menu
+            v-else
+            :key="index+ 'desk-menu-item'">
+            <template slot="title">{{ menuItem.name }}</template>
+            <desk-top-menu-item
+              v-for="(subMenuItem, subIndex) in menuItem.subMenuList"
+              :key="subIndex+ 'desk-sub-menu-item'"
+              :to="subMenuItem.to"
+              :index="index + '-' + subIndex + '_nav'">
+              {{ subMenuItem.name }}
+            </desk-top-menu-item>
+          </desk-top-sub-menu>
+        </template>
       </desk-top-menu-nav>
       <desk-top-menu-aside>
-        <desk-top-menu-item index="5" href="#">
-          <span class="desk-menu-btn">SIGN IN</span>
-        </desk-top-menu-item>
-        <desk-top-menu-item index="6" href="#">
-          <span class="desk-menu-btn">SIGN UP UP</span>
-        </desk-top-menu-item>
-        <desk-top-sub-menu>
-          <template slot="title">HELP</template>
-          <desk-top-menu-item index="7-1">HELP ONE</desk-top-menu-item>
-          <desk-top-menu-item index="7-2">HELP TWO</desk-top-menu-item>
-        </desk-top-sub-menu>
+        <template v-for="(asideMenuItem, asideIndex) in $attrs.asideMenuList">
+          <desk-top-menu-item
+            v-if="!asideMenuItem.subMenuList"
+            :key="asideIndex+ 'desk-aside-menu-item'"
+            :index="asideIndex + '_aside'"
+            :to="asideMenuItem.to">
+            <span class="desk-menu-btn">{{ asideMenuItem.name }}</span>
+          </desk-top-menu-item>
+          <desk-top-sub-menu
+            v-else
+            :key="asideIndex+ 'desk-aside-menu-item'">
+            <template slot="title">{{ asideMenuItem.name }}</template>
+            <desk-top-menu-item
+              v-for="(asideSubMenuItem, asideSubIndex) in asideMenuItem.subMenuList"
+              :key="asideSubIndex+ 'desk-aside-sub-menu-item'"
+              :to="asideSubMenuItem.to"
+              :index="asideIndex + '-' + asideSubIndex + '_aside'">
+              {{ asideSubMenuItem.name }}
+            </desk-top-menu-item>
+          </desk-top-sub-menu>
+        </template>
       </desk-top-menu-aside>
     </div>
   </div>
@@ -69,7 +90,7 @@ export default {
 .desk-menu-container {
   display: flex;
   padding: 0 40px;
-  color: #6b6b6b;
+  color: #fff;
   height: 100%;
 }
 .desk-menu-btn {

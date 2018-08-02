@@ -1,21 +1,20 @@
 <template>
   <li class="mobile-top-menu-item">
-    <a
-      :href="href"
+    <div
+      class="link-div"
       :class="{ itemActive: this.rootMenu.activeIndex === this.index }"
       @click="addActiveClass()">
       <slot></slot>
-    </a>
+    </div>
   </li>
 </template>
 
 <script>
 export default {
   name: 'MobileTopMenuItem',
-  inject: ['rootMenu'],
+  inject: ['rootMenu', 'mobileRootMenu'],
   props: {
-    href: {
-      type: String,
+    to: {
       default: ''
     },
     index: {
@@ -26,6 +25,8 @@ export default {
   methods: {
     addActiveClass () {
       this.rootMenu.activeIndex = this.index
+      this.rootMenu.handleItemClick(this.to)
+      this.mobileRootMenu.closeSideMenu()
     }
   }
 }
@@ -40,13 +41,12 @@ export default {
   padding: 18px 0;
   color: #6b6b6b;
 }
-.mobile-top-menu-item > a {
+.mobile-top-menu-item > .link-div {
   width: 100%;
-  text-decoration: none;
   text-align: left;
   color: #6b6b6b;
 }
-.mobile-top-menu-item > a:hover {
+.mobile-top-menu-item > .link-div:hover {
   color: #0d0e0e;
 }
 .itemActive {

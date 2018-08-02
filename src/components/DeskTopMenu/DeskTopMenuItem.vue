@@ -1,11 +1,11 @@
 <template>
   <li class="desk-top-menu-item">
-    <a
-      :href="href"
+    <div
+      class="link-div"
       :class="{ itemActive: this.rootMenu.activeIndex === this.index }"
       @click="addActiveClass()">
       <slot></slot>
-    </a>
+    </div>
   </li>
 </template>
 
@@ -14,8 +14,7 @@ export default {
   name: 'DeskTopMenuItem',
   inject: ['rootMenu'],
   props: {
-    href: {
-      type: String,
+    to: {
       default: ''
     },
     index: {
@@ -26,6 +25,7 @@ export default {
   methods: {
     addActiveClass () {
       this.rootMenu.activeIndex = this.index
+      this.rootMenu.handleItemClick(this.to)
     }
   }
 }
@@ -40,13 +40,12 @@ export default {
   margin: 0;
   list-style: none;
 }
-.desk-top-menu-item > a {
-  text-decoration: none;
+.desk-top-menu-item > .link-div {
   padding-right: 2rem;
   text-align: center;
-  color: #6b6b6b;
+  color: #fff;
 }
-.desk-top-menu-item > a:hover {
+.desk-top-menu-item > .link-div:hover {
   color: #0d0e0e;
 }
 .itemActive {

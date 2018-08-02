@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <top-menu
+      :primary-color="menuData.primaryColor"
       :menuList="menuData.menuList"
-      :logoImg="menuData.logoImg"/>
+      :logoImg="menuData.logoImg"
+      :asideMenuList="menuData.asideMenuList"/>
     <div class="content-container">sddsfsd</div>
   </div>
 </template>
@@ -18,17 +20,34 @@ export default {
   data () {
     return {
       menuData: {
-        primaryColor: '',
-        logoImg: '../../static/logo.png',
+        primaryColor: '#38b48b',
+        logoImg: {
+          name: 'logo',
+          src: require('./assets/logo.png'),
+          to: '/',
+          wordDes: 'brand'
+        },
         menuList: [
-          { name: 'Core Docs', href: '#' },
-          { name: 'Forum', href: '#' },
-          { name: 'Community', href: '#' },
-          { name: 'Twitter', href: '#' },
-          { name: 'Community', href: '#' },
-          { name: 'Twitter', href: '#' },
-          { name: 'Twitter', href: '#' },
-          { name: 'Twitter', href: '#' }
+          { name: 'HOME', to: '/' },
+          {
+            name: 'PRIVATE DATA',
+            subMenuList: [
+              { name: 'ADD DATA', to: '/private_data' },
+              { name: 'VIEW DATA', to: '' }
+            ]
+          },
+          { name: 'ABOUT', to: '/about' }
+        ],
+        asideMenuList: [
+          { name: 'LOGIN', to: '/login' },
+          { name: 'LOGOUT', to: '' },
+          {
+            name: 'HELP',
+            subMenuList: [
+              { name: 'HELP INFO', to: '/help' },
+              { name: 'HELP FUNCTION', to: '' }
+            ]
+          }
         ]
       }
     }

@@ -1,17 +1,19 @@
 <template>
   <figure class="desk-top-menu-brand">
-    <a :href="href">
+    <div
+      class="link-div"
+      @click="rootMenu.handleItemClick(to)">
       <slot></slot>
-    </a>
+    </div>
   </figure>
 </template>
 
 <script>
 export default {
   name: 'DeskTopMenuBrand',
+  inject: ['rootMenu'],
   props: {
-    href: {
-      type: String,
+    to: {
       default: ''
     }
   }
@@ -24,17 +26,16 @@ export default {
   margin: 1em 0;
   box-sizing: border-box;
 }
-.desk-top-menu-brand img {
+.desk-top-menu-brand > .link-div > img {
   width: 4rem;
   height: 4rem;
   margin-right: 1rem;
 }
-.desk-top-menu-brand > a {
-  text-decoration: none;
+.desk-top-menu-brand > .link-div {
   font-weight: bold;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
-  color: #6b6b6b;
+  color: #fff;
 }
 </style>

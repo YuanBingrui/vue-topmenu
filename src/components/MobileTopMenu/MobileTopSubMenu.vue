@@ -2,7 +2,9 @@
   <li class="mobile-top-sub-menu-container" @click="toggleExpand">
     <span class="mobile-top-sub-menu-title">
       <slot name="mobile-title"></slot>
-      <svg aria-hidden="true" class="icon-arrow-down" ref="iconArrowDown" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" width="16" height="16" role="img"><path d="M.447 13.044c.554.554 1.46.554 2.015 0L8.01 6.362l5.548 6.682c.554.554 1.46.554 2.014 0 .554-.554.554-1.46 0-2.015l-6.48-7.62c-.295-.293-.69-.426-1.082-.407-.39-.02-.784.114-1.082.408l-6.48 7.616c-.555.554-.555 1.46 0 2.018z""></path></svg>
+      <svg aria-hidden="true" class="icon-arrow-down" ref="iconArrowDown" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" width="16" height="16" role="img">
+        <path d="M.447 13.044c.554.554 1.46.554 2.015 0L8.01 6.362l5.548 6.682c.554.554 1.46.554 2.014 0 .554-.554.554-1.46 0-2.015l-6.48-7.62c-.295-.293-.69-.426-1.082-.407-.39-.02-.784.114-1.082.408l-6.48 7.616c-.555.554-.555 1.46 0 2.018z""></path>
+      </svg>
     </span>
     <div class="mobile-top-sub-menu-content" ref="mobileSubMenuBody">
       <ul class="mobile-top-sub-menu-body">
@@ -16,7 +18,7 @@
 export default {
   name: 'MobileTopSubMenu',
   props: {
-    menuNum: {
+    subMenuNum: {
       type: Number,
       default: 0
     }
@@ -41,7 +43,7 @@ export default {
       }
     },
     addStyle (el, iconEl) {
-      el.style.height = 8 * 57 + 'px'
+      el.style.height = this.subMenuNum * 57 + 'px'
       el.style.transform = 'scale(1, 1)'
       el.style.transformOrigin = '0 0'
       iconEl.style.transform = 'rotateZ(360deg)'
@@ -68,6 +70,7 @@ export default {
 }
 .mobile-top-sub-menu-title {
   width: 100%;
+  text-align: left;
   padding: 18px 0;
 }
 .mobile-top-sub-menu-title .icon-arrow-down {
